@@ -1,0 +1,102 @@
+const EXAM_CONFIG = {
+  "JKSSB": {
+    "Junior Assistant": { marksPerQ: 1, negativeMark: 0.25, durationMins: 80 },
+    "Police Constable": { marksPerQ: 1, negativeMark: 0.25, durationMins: 120 }
+  },
+  "SSC CGL": {
+    "Tier-1": { marksPerQ: 2, negativeMark: 0.50, durationMins: 60 }
+  }
+};
+
+const STARTER_QUESTIONS = [
+  {
+    id: "q-001",
+    exam: "SSC CGL",
+    post: "Tier-1",
+    subject: "Quantitative Aptitude",
+    topic: "Algebra",
+    question: "If $x + \\frac{1}{x} = 5$, find the value of $x^3 + \\frac{1}{x^3}$.",
+    options: ["110", "125", "115", "140"],
+    correctIndex: 0,
+    isPyq: true,
+    pyqYear: "SSC CGL 2023",
+    explanation: "Using the algebraic cube identity for $x + \\frac{1}{x} = k$, the value is $110$.",
+    shortcutExplanation: "Use the direct SSC identity: If $x + \\frac{1}{x} = k$, then $x^3 + \\frac{1}{x^3} = k^3 - 3k$.\n\nSubstitute $k = 5$:\n$$5^3 - 3(5) = 125 - 15 = 110$$",
+    detailedExplanation: "Start with $x + \\frac{1}{x} = 5$.\n\nCube both sides using $(a + b)^3 = a^3 + b^3 + 3ab(a + b)$:\n$$\\left(x + \\frac{1}{x}\\right)^3 = x^3 + \\frac{1}{x^3} + 3(x)\\left(\\frac{1}{x}\\right)\\left(x + \\frac{1}{x}\\right)$$\n\nSubstitute $x + \\frac{1}{x} = 5$ and cancel $x \\cdot \\frac{1}{x} = 1$:\n$$125 = x^3 + \\frac{1}{x^3} + 15$$\n$$x^3 + \\frac{1}{x^3} = 125 - 15 = 110$$"
+  },
+  {
+    id: "q-002",
+    exam: "SSC CGL",
+    post: "Tier-1",
+    subject: "Quantitative Aptitude",
+    topic: "Profit & Loss",
+    question: "A shopkeeper marks his goods 40% above the cost price and allows a discount of 20% on the marked price. What is his net profit percentage?",
+    options: ["10%", "12%", "15%", "20%"],
+    correctIndex: 1,
+    isPyq: true,
+    pyqYear: "SSC CGL 2022",
+    explanation: "A 40% markup followed by a 20% discount yields a net profit of 12%.",
+    shortcutExplanation: "Use the successive percentage formula: $a + b + \\frac{ab}{100}$ (markup is positive, discount is negative).\n\nPut $a = +40$ and $b = -20$:\n$$40 - 20 - \\frac{40 \\times 20}{100} = 20 - 8 = 12\\%$$",
+    detailedExplanation: "Let Cost Price ($CP$) $= ₹100$.\n\n1. **Marked Price ($MP$):** $40\\%$ above $CP = ₹140$.\n2. **Discount:** $20\\%$ of $140 = \\frac{20}{100} \\times 140 = ₹28$.\n3. **Selling Price ($SP$):** $140 - 28 = ₹112$.\n4. **Profit %:**\n$$\\frac{SP - CP}{CP} \\times 100 = \\frac{112 - 100}{100} \\times 100 = 12\\%$$"
+  },
+  {
+    id: "q-005",
+    exam: "JKSSB",
+    post: "Police Constable",
+    subject: "Elementary Mathematics",
+    topic: "Compound Interest",
+    question: "What is the difference between Compound Interest and Simple Interest on a sum of ₹10,000 for 2 years at 10% per annum (compounded annually)?",
+    options: ["₹50", "₹100", "₹150", "₹200"],
+    correctIndex: 1,
+    isPyq: true,
+    pyqYear: "JKSSB 2024",
+    explanation: "The 2-year CI - SI difference on ₹10,000 at 10% is ₹100.",
+    shortcutExplanation: "For exactly 2 years, use the direct difference formula:\n$$CI - SI = P \\left(\\frac{R}{100}\\right)^2$$\n\nSubstitute $P = 10000$ and $R = 10$:\n$$10000 \\times \\left(\\frac{10}{100}\\right)^2 = 10000 \\times \\frac{1}{100} = ₹100$$",
+    detailedExplanation: "1. **Simple Interest ($SI$):**\n$$SI = \\frac{10000 \\times 10 \\times 2}{100} = ₹2,000$$\n\n2. **Compound Interest ($CI$):**\n$$A = 10000\\left(1 + \\frac{10}{100}\\right)^2 = 10000 \\times 1.21 = ₹12,100$$\n$$CI = 12100 - 10000 = ₹2,100$$\n\n3. **Difference:** $2100 - 2000 = ₹100$."
+  },
+  {
+    id: "q-009",
+    exam: "JKSSB",
+    post: "Junior Assistant",
+    subject: "General Awareness (with J&K UT)",
+    topic: "Geography of J&K",
+    question: "Wular Lake, one of the largest freshwater lakes in Asia, is primarily fed by which river?",
+    options: ["Chenab", "Jhelum", "Ravi", "Tawi"],
+    correctIndex: 1,
+    isPyq: true,
+    pyqYear: "JKSSB 2022",
+    explanation: "Wular Lake, located in Bandipora district of Jammu and Kashmir, is fed primarily by the Jhelum River. It was formed by tectonic activity and designated a Ramsar Wetland of International Importance in 1990.",
+    shortcutExplanation: null,
+    detailedExplanation: null
+  },
+  {
+    id: "q-012",
+    exam: "JKSSB",
+    post: "Junior Assistant",
+    subject: "Basic Concepts of Computers",
+    topic: "MS Excel",
+    question: "Which keyboard shortcut in MS Excel inserts the current date into the active cell?",
+    options: ["Ctrl + D", "Ctrl + ;", "Ctrl + Shift + ;", "Alt + D"],
+    correctIndex: 1,
+    isPyq: true,
+    pyqYear: "JKSSB 2023",
+    explanation: "Pressing **Ctrl + ;** (semicolon) inserts the current static date in MS Excel. Related shortcut often tested alongside it: **Ctrl + Shift + ;** inserts the current time.",
+    shortcutExplanation: null,
+    detailedExplanation: null
+  },
+  {
+    id: "q-019",
+    exam: "SSC CGL",
+    post: "Tier-1",
+    subject: "General Awareness",
+    topic: "Indian Polity",
+    question: "Which Article of the Constitution of India abolishes 'Untouchability' and forbids its practice in any form?",
+    options: ["Article 15", "Article 16", "Article 17", "Article 18"],
+    correctIndex: 2,
+    isPyq: true,
+    pyqYear: "SSC CGL 2023",
+    explanation: "**Article 17** falls under the Right to Equality (Articles 14–18) and is an absolute Fundamental Right. Quick recap: Article 15 prohibits discrimination, Article 16 ensures equality of opportunity in public employment, and Article 18 abolishes titles.",
+    shortcutExplanation: null,
+    detailedExplanation: null
+  }
+];
